@@ -14,17 +14,37 @@ session_start();
 var_dump($_SESSION);
 //require autoload file
 require_once('vendor/autoload.php');
+require ('model/data-layer.php');
 
 //create instance of the base class
 $f3 = Base::instance();
 
 
 //define a default root
-$f3->route('GET /', function () {
-    echo "<h1>hello world</h1>";
+$f3->route('GET /', function ($f3) {
+    //echo "<h1>hello world</h1>";
+
+    //save some data
+    $f3->set('username','hon');
+
+    $f3->set('title','working with templets');
+
+    $f3->set('color','green');
+
+    $f3->set('radius', 10);
+
+    $fruits =  array('apple','orange','banana');
+
+    $f3->set('fruits', $fruits);
+
+
+
+    $f3 ->set('dessert', getdessert());
+
+    $f3->set('colors',getColors());
 
     $view = new Template();
-    echo $view->render('views/home.html');
+    echo $view->render('views/info.html');
 
 });
 

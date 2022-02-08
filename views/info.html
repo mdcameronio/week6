@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{@title}}</title>
 </head>
 <body>
-<h1>practice templeting</h1>
+<h1> {{@title}}</h1>
+<p>fav color {{@color}}</p>
+<p>radius {{@radius}}</p>
+<h3>fruits</h3>
+<ul>
+    <repeat group="{{@fruits}}" value="{{@fruit}} ">
+        <p>{{@fruit}}</p>
+    </repeat>
+
+</ul>
+
+<h3>colors</h3>
+
+    <repeat group="{{@colors}}" value="{{@color}}">
+        <label><input type="radio" name="colors" value="{{@color}}">{{@color}}</label>
+    </repeat>
+
+<p></p>
 </body>
 </html>
